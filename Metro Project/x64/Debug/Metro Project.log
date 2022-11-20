@@ -1,0 +1,3 @@
+﻿  Source.cpp
+E:\Metro Project\Source.cpp(197,20): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  Metro Project.vcxproj -> E:\Metro Project\x64\Debug\Metro Project.exe
