@@ -38,7 +38,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 		if (key == 1)
 		{
 			b.info();
-			ofstream f("E:\\Bank Management\\Reg_users.dat",ios::app);
+			ofstream f("Reg_users.dat",ios::app);
 			f.write((char*)&b, sizeof(b));
 			f.close();
 			b.display();
@@ -48,12 +48,12 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 		else if (key == 2) {
 			string nam; int am = 0,count=0;
 			cout << "Please enter your first name: "; cin >> nam;
-			ifstream u("E:\\Bank Management\\Reg_users.dat");
+			ifstream u("Reg_users.dat");
 			while (u.read((char*)&b,sizeof(b)))
 			{
 				if (nam == b.f_name)
 				{
-					ofstream f("E:\\Bank Management\\Reg_users1.dat", ios::app);
+					ofstream f("Reg_users1.dat", ios::app);
 					cout << "Name of account holder is: " << b.f_name << " " << b.l_name << endl;
 					cout << "Current amount is: " << b.amount << endl;
 					cout << "Please enter new amount: "; cin >> am;
@@ -61,7 +61,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 					cout << "Name of account holder is: " << b.f_name << " " << b.l_name << endl;
 					cout << "Current amount is: " << b.amount << endl;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -79,19 +79,19 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 			u.close();
 			if (count >= 1)
 			{
-				remove("E:\\Bank Management\\Reg_users.dat");
-				rename("E:\\Bank Management\\Reg_users1.dat", "E:\\Bank Management\\Reg_users.dat");
+				remove("Reg_users.dat");
+				rename("Reg_users1.dat", "Reg_users.dat");
 			}
 		}
 		else if (key == 3) {
 			string nam; int am = 0,count = 0;
 			cout << "Please enter your first name: "; cin >> nam;
-			ifstream u("E:\\Bank Management\\Reg_users.dat");
+			ifstream u("Reg_users.dat");
 			while (u.read((char*)&b, sizeof(b)))
 			{
 				if (nam == b.f_name)
 				{
-					ofstream f("E:\\Bank Management\\Reg_users1.dat", ios::app);
+					ofstream f("Reg_users1.dat", ios::app);
 					cout << "Name of account holder is: " << b.f_name << " " << b.l_name << endl;
 					cout << "Current amount is: " << b.amount << endl;
 			a:		cout << "Please enter new amount: "; cin >> am;
@@ -106,7 +106,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 					cout << "Name of account holder is: " << b.f_name << " " << b.l_name << endl;
 					cout << "Current amount is: " << b.amount << endl;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -124,14 +124,14 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 			u.close();
 			if (count >= 1)
 			{
-				remove("E:\\Bank Management\\Reg_users.dat");
-				rename("E:\\Bank Management\\Reg_users1.dat", "E:\\Bank Management\\Reg_users.dat");
+				remove("Reg_users.dat");
+				rename("Reg_users1.dat", "Reg_users.dat");
 			}
 		}
 		else if (key == 4) {
 			string nam;
 			cout << "Please enter your first name: "; cin >> nam;
-			ifstream u("E:\\Bank Management\\Reg_users.dat");
+			ifstream u("Reg_users.dat");
 			while (u.read((char*)&b, sizeof(b)))
 			{
 				if (nam == b.f_name)
@@ -149,14 +149,14 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 		else if(key == 5){
 		string nam; int count = 0; char ke, opt;
 		cout << "Please enter your first name: "; cin >> nam;
-		ifstream u("E:\\Bank Management\\Reg_users.dat");
+		ifstream u("Reg_users.dat");
 		while (u.read((char*)&b, sizeof(b)))
 		{
 			if (nam == b.f_name)
 			{
 				b.display();
 				cout << "=================================================================\n";
-				ofstream f("E:\\Bank Management\\Reg_users1.dat", ios::app);
+				ofstream f("Reg_users1.dat", ios::app);
 			b:	cout << "To update first name (Press f). \nTo update last name (Press l). \n";
 				cout << "To update phone no. (Press p). \nTo update address (Press a). \nTo update cnic (Press c). \n";
 				cin >> ke;
@@ -164,7 +164,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 				{
 					cout << "Please enter your new first name: "; cin >> b.f_name;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -176,7 +176,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 				else if (ke == 'l') {
 					cout << "Please enter your new last name: "; cin >> b.l_name;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -188,7 +188,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 				else if (ke == 'p') {
 					cout << "Please enter your new number: "; cin >> b.ph_no;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -200,7 +200,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 				else if (ke == 'a') {
 					cout << "Please enter your new address: "; cin >> b.address;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -212,7 +212,7 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 				else if (ke == 'c') {
 					cout << "Please enter your new CNIC: "; cin >> b.cnic;
 					f.write((char*)&b, sizeof(b));
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -239,26 +239,26 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 		u.close();
 		if (count >= 1)
 		{
-			remove("E:\\Bank Management\\Reg_users.dat");
-			rename("E:\\Bank Management\\Reg_users1.dat", "E:\\Bank Management\\Reg_users.dat");
+			remove("Reg_users.dat");
+			rename("Reg_users1.dat", "Reg_users.dat");
 		}
 }
 		else if (key == 6) {
 		string nam; int count = 0; char ke;
 		cout << "Please enter your first name: "; cin >> nam;
-		ifstream u("E:\\Bank Management\\Reg_users.dat");
+		ifstream u("Reg_users.dat");
 		while (u.read((char*)&b, sizeof(b)))
 		{
 			if (nam == b.f_name)
 			{
-				ofstream f("E:\\Bank Management\\Reg_users1.dat", ios::app);
+				ofstream f("Reg_users1.dat", ios::app);
 				cout << "Name of account holder is: " << b.f_name << " " << b.l_name << endl;
 				cout << "Current amount is: " << b.amount << endl;
 				cout << "Do you really want to delete the record? (y/n) ";
 				cin >> ke;
 				if (ke == 'y')
 				{
-					ifstream u("E:\\Bank Management\\Reg_users.dat");
+					ifstream u("Reg_users.dat");
 					while (u.read((char*)&b, sizeof(b)))
 					{
 						if (nam != b.f_name)
@@ -281,14 +281,14 @@ c:	cout << "1. Account Open. \n2. Deposit Amount. \n3. Withdraw Amount. \n4. Che
 		u.close();
 		if (count >= 1)
 		{
-			remove("E:\\Bank Management\\Reg_users.dat");
-			rename("E:\\Bank Management\\Reg_users1.dat", "E:\\Bank Management\\Reg_users.dat");
+			remove("Reg_users.dat");
+			rename("Reg_users1.dat", "Reg_users.dat");
 		}
 }
 		else if (key == 7) {
 		string nam;
 		cout << "Please enter your first name: "; cin >> nam;
-		ifstream u("E:\\Bank Management\\Reg_users.dat");
+		ifstream u("Reg_users.dat");
 		while (u.read((char*)&b, sizeof(b)))
 		{
 			if (nam == b.f_name)
